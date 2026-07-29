@@ -1,11 +1,56 @@
-.navbar {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem 0;
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 30;
 }
 
-.navbar a {
-  color: #111827;
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1rem;
+  min-width: 100%;
+  height: 10vh;
+  color: white;
+  gap: 1vw;
+  padding-right: 1vw;
+  animation: slideDown 1.8s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.212);
+}
+
+.nav a {
   text-decoration: none;
-  font-weight: 600;
+  color: white;
+}
+
+.nav a::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 0.7vh;
+  background-color: var(--verde);
+  border-radius: 2px;
+  transition: 0.5s ease-in-out;
+}
+
+.nav a:hover {
+  font-weight: 800;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

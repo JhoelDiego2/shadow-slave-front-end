@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Night';
+  src: url('/assets/fonts/NightsideDemoRegular.ttf') format('truetype');
+}
+
+:root {
+  --fundo-principal: #080A0B;
+  --Sombra: #2e2e2e;
+  --Azul-esverdeado: #7aa7a4;
+  --azul-escverdeado-obscuro: #658a87;
+  --Cinza-metálico: #5a5a5a;
+  --Detalhe-ósseo: #b0a391;
+  --Roxo-escuro: #4b2a58;
+  --texto: #f0f0f0;
+  --luz: #0e2d30;
+  --verde: #3DB3A2;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--Cinza-metálico);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--azul-escverdeado-obscuro);
+  border-radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--fundo-principal);
+  color: white;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+h1, h2, h3, img {
+  user-select: none;
+}

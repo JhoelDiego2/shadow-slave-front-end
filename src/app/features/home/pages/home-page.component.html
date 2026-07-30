@@ -1,0 +1,15 @@
+<ng-container *ngIf="showIntro(); else landing">
+  <app-mongrel-intro (saberMais)="avancarParaSite()"></app-mongrel-intro>
+</ng-container>
+
+<ng-template #landing>
+  <main class="home-shell">
+    <app-landing-hero></app-landing-hero>
+    <app-about-section></app-about-section>
+    <app-history-section></app-history-section>
+    <app-characters-section></app-characters-section>
+    <app-games-section></app-games-section>
+    <app-developer-section></app-developer-section>
+    <app-footer></app-footer>
+  </main>
+</ng-template>

@@ -1,11 +1,29 @@
 <header id="header">
-  <nav class="nav" id="nav_principal">
-    <a routerLink="/" fragment="inicio"><p>INICIO</p></a>
-    <a routerLink="/" fragment="sobre"><p>SOBRE</p></a>
-    <a routerLink="/" fragment="historia"><p>HISTORIA</p></a>
-    <a routerLink="/" fragment="personagens"><p>PERSONAGENS</p></a>
-    <a routerLink="/" fragment="jogo"><p>JOGO</p></a>
-    <a routerLink="/" fragment="desenvolvedor"><p>DESENVOLVEDOR</p></a>
-    <a routerLink="/auth/login"><p id="entrar">ENTRAR</p></a>
-  </nav>
+  <div class="nav-inner">
+    <a routerLink="/" class="brand">SHADOW SLAVE</a>
+
+    <button class="nav-toggle" type="button" (click)="toggleMenu()" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" [class.open]="menuOpen()">
+      <a routerLink="/" fragment="inicio" (click)="closeMenu()"><p>INICIO</p></a>
+      <a routerLink="/" fragment="sobre" (click)="closeMenu()"><p>SOBRE</p></a>
+      <a routerLink="/" fragment="historia" (click)="closeMenu()"><p>HISTORIA</p></a>
+      <a routerLink="/" fragment="personagens" (click)="closeMenu()"><p>PERSONAGENS</p></a>
+      <a routerLink="/" fragment="jogo" (click)="closeMenu()"><p>JOGO</p></a>
+      <a routerLink="/" fragment="desenvolvedor" (click)="closeMenu()"><p>DESENVOLVEDOR</p></a>
+      <button class="audio-control" type="button" (click)="toggleAudio()" [attr.aria-pressed]="audioService.isPlaying()">
+        <span class="audio-icon" aria-hidden="true">
+          {{ audioService.isPlaying() ? '🔊' : '🔇' }}
+        </span>
+        <span class="audio-label">
+          {{ audioService.isPlaying() ? 'Música' : 'Mudo' }}
+        </span>
+      </button>
+      <a routerLink="/auth/login" (click)="closeMenu()"><p id="entrar">ENTRAR</p></a>
+    </nav>
+  </div>
 </header>

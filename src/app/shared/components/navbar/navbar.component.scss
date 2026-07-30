@@ -4,50 +4,157 @@
   left: 0;
   width: 100%;
   z-index: 30;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem;
+}
+
+.brand {
+  font-family: 'Night', sans-serif;
+  letter-spacing: 0.2rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
 }
 
 .nav {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  font-size: 1rem;
-  min-width: 100%;
-  height: 10vh;
-  color: white;
-  gap: 1vw;
-  padding-right: 1vw;
-  animation: slideDown 1.8s ease;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.212);
+  justify-content: flex-end;
+  gap: 1.5rem;
+  animation: slideDown 1.2s ease;
 }
 
 .nav a {
   text-decoration: none;
   color: white;
+  position: relative;
+  font-weight: 500;
 }
 
 .nav a::after {
   content: "";
   display: block;
-  width: 20px;
-  height: 0.7vh;
+  width: 0;
+  height: 2px;
   background-color: var(--verde);
-  border-radius: 2px;
-  transition: 0.5s ease-in-out;
-}
-
-.nav a:hover {
-  font-weight: 800;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  transition: width 0.3s ease;
 }
 
 .nav a:hover::after {
   width: 100%;
 }
 
+#entrar {
+  padding: 0.75rem 1.2rem;
+  border: 1px solid var(--verde);
+  border-radius: 999px;
+}
+
+.nav button.audio-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.nav button.audio-control:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: var(--verde);
+}
+
+.nav button.audio-control .audio-icon {
+  font-size: 1rem;
+}
+
+.nav button.audio-control .audio-label {
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .nav button.audio-control {
+    padding: 0.8rem 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav button.audio-control .audio-label {
+    display: none;
+  }
+}
+
+.nav-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  gap: 0.35rem;
+  padding: 0.5rem;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: white;
+  border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.96);
+    gap: 1rem;
+    padding: 1.5rem 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav.open {
+    max-height: 480px;
+  }
+
+  .nav a {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 0;
+  }
+}
+
 @keyframes slideDown {
   0% {
     opacity: 0;
-    transform: translateY(-60px);
+    transform: translateY(-25px);
   }
   100% {
     opacity: 1;
